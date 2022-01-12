@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'AuthorizationServer.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'authorization', 
+        'NAME': 'authorization_server', 
         'USER': 'postgres', 
         'PASSWORD': 'database123',
         'HOST': '127.0.0.1', 
@@ -127,7 +127,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR.joinpath('static')
 ]
