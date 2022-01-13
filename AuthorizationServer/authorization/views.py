@@ -5,6 +5,11 @@ from datetime import datetime
 from rest_framework import viewsets
 from rest_framework import permissions
 from .serializers import *
+from django.views import View
+from django.http import JsonResponse
+import json
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 
@@ -51,3 +56,19 @@ class EstadoViewSet(viewsets.ModelViewSet):
     serializer_class = EstadoSerializer
     permission_classes = [permissions.AllowAny]
 
+@method_decorator(csrf_exempt, name='dispatch')
+class Transaccion(View):
+    def post(self, request):
+
+        data = json.loads(request.body.decode("utf-8"))
+        p_name = data.get('product_name')
+
+        product_data = {
+            'product_name': p_name,
+        }
+        print("p_name: ")
+        print(p_name)
+        data = {
+            "message": f"New item added to Cart with id: {p_name}"
+        }
+        return JsonResponse(data, status=201)

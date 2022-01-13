@@ -6,4 +6,6 @@ class EstadoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Estado_Servidor
         fields = ['estado']
-
+    def post(self):
+        pass
+    
