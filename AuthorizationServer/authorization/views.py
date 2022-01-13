@@ -89,7 +89,7 @@ class Transaccion(View):
             tr.save()
         elif estado_actual == 2:
             tr=Transaccion_Autorizado(id_producto=id_producto, nombre_producto=nombre_producto,
-                                   usuario_comprador=usuario_comprador, fecha_peticion=fecha_peticion, fecha_authorizado=date.today(), pago=pago, autorizado=False)
+                                   usuario_comprador=usuario_comprador, fecha_peticion=fecha_peticion, fecha_autorizado=date.today(), pago=pago, autorizado=False)
             tr.save()
         else:
             tp=Transaccion_Pendiente(id_producto=id_producto, nombre_producto=nombre_producto,
