@@ -34,6 +34,11 @@ urlpatterns = [
         views.home,
         name='home'
     ),
+    path(
+        'reportes/',
+        views.reportes,
+        name='resportes'
+    ),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('transaccion/', views.Transaccion.as_view()),

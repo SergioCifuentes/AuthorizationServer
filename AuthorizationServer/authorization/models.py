@@ -44,7 +44,7 @@ class Transaccion_Autorizado(models.Model):
     fecha_peticion = models.DateField(null=True)
     fecha_autorizado = models.DateField(null=True)
     pago= models.ForeignKey(Pago, on_delete=models.CASCADE,null=True)
-    
+    autorizado=models.BooleanField()
 
     class Meta:
         verbose_name = 'Transaccion_Pendiente'
