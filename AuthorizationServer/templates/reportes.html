@@ -17,9 +17,9 @@
 <div class="container" style="width: 85%;align-self: center;">
     {% for transaccion in Transacciones %}
     {% if transaccion.autorizado == 1 %}
-    <div class="card border-success mb-3" style="max-width: 85rem;"></div>
+    <div class="card border-success mb-3" style="max-width: 85rem;">
     {% else %}
-    <div class="card border-danger mb-3" style="max-width: 85rem;"></div>
+    <div class="card border-danger mb-3" style="max-width: 85rem;">
     {% endif %}
 
     <div class="card-header">
