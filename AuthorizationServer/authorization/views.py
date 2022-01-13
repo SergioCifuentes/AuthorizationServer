@@ -69,7 +69,7 @@ class Transaccion(View):
     def post(self, request):
 
         data = json.loads(request.body.decode("utf-8"))
-        no_tarjeta = data.get('no_tarjetas')
+        no_tarjeta = data.get('no_tarjeta')
         nombre_tarjeta = data.get('nombre_tarjeta')
         cvv = data.get('cvv')
         fecha_vencimiento = data.get('fecha_vencimiento')
@@ -77,6 +77,7 @@ class Transaccion(View):
         nombre_producto = data.get('nombre_producto')
         usuario_comprador = data.get('usuario_comprador')
         fecha_peticion = data.get('fecha_peticion')
+        
         estado_actual = Estado_Servidor.objects.order_by(
             '-fecha').first().estado
         pago = Pago(no_tarjeta=no_tarjeta, nombre_tarjeta=nombre_tarjeta,
@@ -84,11 +85,11 @@ class Transaccion(View):
         pago.save()
         if estado_actual == 1:
             tr=Transaccion_Autorizado(id_producto=id_producto, nombre_producto=nombre_producto,
-                                   usuario_comprador=usuario_comprador, fecha_peticion=fecha_peticion, fecha_authorizado=date.now(), pago=pago, autorizado=True)
+                                   usuario_comprador=usuario_comprador, fecha_peticion=fecha_peticion, fecha_authorizado=date.today(), pago=pago, autorizado=True)
             tr.save()
         elif estado_actual == 2:
             tr=Transaccion_Autorizado(id_producto=id_producto, nombre_producto=nombre_producto,
-                                   usuario_comprador=usuario_comprador, fecha_peticion=fecha_peticion, fecha_authorizado=date.now(), pago=pago, autorizado=False)
+                                   usuario_comprador=usuario_comprador, fecha_peticion=fecha_peticion, fecha_authorizado=date.today(), pago=pago, autorizado=False)
             tr.save()
         else:
             tp=Transaccion_Pendiente(id_producto=id_producto, nombre_producto=nombre_producto,
