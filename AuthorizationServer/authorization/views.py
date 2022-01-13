@@ -49,5 +49,5 @@ class EstadoViewSet(viewsets.ModelViewSet):
     """
     queryset = Estado_Servidor.objects.order_by('-fecha')
     serializer_class = EstadoSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
