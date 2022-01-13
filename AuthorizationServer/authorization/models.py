@@ -52,3 +52,13 @@ class Transaccion_Autorizado(models.Model):
 
     def __str__(self) -> str:
         return self.id
+
+STATUS_CHOICES = (
+    (1, 'Abierto'),
+    (2, 'Cerrado'),
+    (3, 'Manual'),
+)
+
+class Estado_Servidor(models.Model):
+    estado=models.IntegerField(choices=STATUS_CHOICES,default=1)
+    fecha=models.DateTimeField()

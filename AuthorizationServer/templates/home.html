@@ -1,0 +1,49 @@
+{% include 'base.html' %}
+{% include 'static/navbar.html' %}
+{%if estado.estado == 1%}
+<h1 style="color: green;" class="h2">Estado Actual: Abierto</h1>
+{%elif estado.estado == 2%}
+<h1 style="color: red;" class="h2">Estado Actual: Cerrado</h1>
+{%else%}
+<h1 style="color: yellow;" class="h2">Estado Actual: Manual</h1>
+{%endif%}
+<form method="POST">
+    {% csrf_token %}
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <select name="estados" id="estados">
+            {%if estado.estado == 1%}
+            <option selected="selected" value="1">Abierto</option>
+            {%else%}
+            <option  value="1">Abierto</option>
+            {%endif%}
+            {%if estado.estado == 2%}
+            <option selected="selected" value="2">Cerrado</option>
+            {%else%}
+            <option value="2">Cerrado</option>
+            {%endif%}
+            {%if estado.estado == 3%}
+            <option selected="selected" value="3">Manual</option>
+            {%else%}
+            <option value="3">Manual</option>
+            {%endif%}
+            
+            
+
+            
+          </select>
+        <div class="btn-group me-2">
+
+            <button type="submit" class="btn btn-sm btn-outline-primary">Cambiar Estado</button>
+
+        </div>
+
+    </div>
+</form>
+</div>
+
+<br>
+<div class="container" style="width: 85%;align-self: center;">
+
+</div>
+{% include 'static/footer.html' %}
+{% include 'scripts.html' %}
