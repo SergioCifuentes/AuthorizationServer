@@ -33,16 +33,12 @@
     </div>
     <div class="card-body text-success">
         <h4 class="card-title">comprador {{ transaccion.usuario_comprador }}</h4>
-        <p style="display:inline;text-align:left;" class="card-text">Fecha de solicitud: <b>{{
-                transaccion.fecha_peticion }}</p>
-        <p style="display:inline;text-align:left;" class="card-text">Fecha de Procesado: <b>{{
-                transaccion.    fecha_autorizado = models.DateField(null=True)
+        <p style="display:inline;text-align:left;" class="card-text">Fecha de solicitud: <b>{{ transaccion.fecha_peticion }}</p>
+        <p style="display:inline;text-align:left;" class="card-text">Fecha de Procesado: <b>{{ transaccion.    fecha_autorizado = models.DateField(null=True)
             }}</p>
         <h4 class="card-title">Informacion De Pago:</h4>
-        <p style="display:inline;text-align:left;" class="card-text">Nombre: <b>{{
-            transaccion.pago.nombre_tarjeta }}</p>
-            <p style="display:inline;text-align:left;" class="card-text">Numero: <b>{{
-                transaccion.pago.no_tarjeta }}</p>
+        <p style="display:inline;text-align:left;" class="card-text">Nombre: <b>{{ transaccion.pago.nombre_tarjeta }}</p>
+            <p style="display:inline;text-align:left;" class="card-text">Numero: <b>{{ transaccion.pago.no_tarjeta }}</p>
     </div>
 </div>
 {% endfor %}

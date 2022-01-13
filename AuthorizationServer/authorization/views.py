@@ -85,7 +85,7 @@ class Transaccion(View):
         pago.save()
         if estado_actual == 1:
             tr=Transaccion_Autorizado(id_producto=id_producto, nombre_producto=nombre_producto,
-                                   usuario_comprador=usuario_comprador, fecha_peticion=fecha_peticion, fecha_authorizado=date.today(), pago=pago, autorizado=True)
+                                   usuario_comprador=usuario_comprador, fecha_peticion=fecha_peticion, fecha_autorizado=date.today(), pago=pago, autorizado=True)
             tr.save()
         elif estado_actual == 2:
             tr=Transaccion_Autorizado(id_producto=id_producto, nombre_producto=nombre_producto,
